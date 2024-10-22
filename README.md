@@ -1,5 +1,5 @@
 # API Personas
-Uso de FastAPI y SQLite3 para generar una API REST
+Uso de FastAPI y MariaDB para generar una API REST con las siguientes funciones: insertar, borrar, actualizar, buscar y listar registros de una tabla.
 
 ## 1. Configurar codespace
 
@@ -86,3 +86,36 @@ SELECT * FROM personas;
 ````shell
 MariaDB [(none)]> source db_agenda.sql
 ````
+
+## 3. Ambiente virtual
+
+3.1 Crear el ambiente virtual
+
+````shell
+$  python3 -m venv venv
+````
+
+3.2 Iniciar el ambiente virtual
+
+````shell
+$ source venv/bin/activate
+````
+
+3.2 Desactivar el ambiente virtual
+
+````shell
+$ deactivate
+````
+
+3.3 Actualizar PIP
+
+````shell
+$ pip install --upgrade pip
+````
+
+3.4 Instalar las librerias
+
+````shell
+pip install -r requirements.txt
+````
+
