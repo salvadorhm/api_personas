@@ -6,21 +6,39 @@ Uso de FastAPI y SQLite3 para generar una API REST
 1.1 Actualizar versiones de librerias y paquetes instalables
 
 ````shell
-sudo apt-get update
+$ sudo apt-get update
 ````
 
-1.2 Instalar MySQL
+1.2 Instalar MariaDB
+
 
 ````shell
-sudo apt-get install mysql-server -y
+$ sudo apt-get install mariadb-server -y
 ````
 
-1.3 Conectando con el servidor MySQL
+1.3 Detener el servidor
 
 ````shell
-sudo mysql -u root
+$ sudo /etc/init.d/mysql stop
 ````
 
+1.4 Iniciar el servidor
+
+````shell
+$ sudo mysqld_safe --skip-grant-tables &
+````
+
+1.5 Conectando con el servidor MySQL
+
+````shell
+$ mysql -u root
+````
+
+1.6 Salir de la MariaDB
+
+````shell
+MariaDB [(none)]> exit;
+````
 
 ## 2. Script para crear la base de datos
 
@@ -39,24 +57,32 @@ sudo mysql -u root
 
 * Crear la base de datos **db_agenda**.
 * Crear la tabla **personas**.
-* Insertar 3 registros en la tabla **personas**.
+* Insertar 2 registros en la tabla **personas**.
 
 ````sql
 CREATE DATABASE db_agenda;
 
-USE DATABASE db_agenda;
+USE  db_agenda;
 
 CREATE TABLE personas(
-    id_persona int AUTOINCREMENT PRIMARY KEY,
+    id_persona int AUTO_INCREMENT PRIMARY KEY,
     nombre varchar(50) NOT NULL,
     primer_apellido varchar(50) NOT NULL,
     segundo_apellido varchar(50) NOT NULL,
     email varchar(100) NOT NULL,
-    telefono varchar(10) NOT NULL,
+    telefono varchar(10) NOT NULL
 );
 
-INSERT INTO pensonas (nombre,primer_apellido,segundo_apellido,email,telefono)
+INSERT INTO personas (nombre,primer_apellido,segundo_apellido,email,telefono)
 VALUES 
-("Dejah", "Thoris", "Barsoon","dejah@email.mr","1234567890"),
-("John", "Carter", "Earth", "john@email.ea","2345678901");
+("Dejah", "Thoris", "Barsoon","dejah@email.com","1234567890"),
+("John", "Carter", "Earth", "john@email.com","2345678901");
+
+SELECT * FROM personas;
+````
+
+2.3 Crear la base de datos desde MariaDB shell
+
+````shell
+MariaDB [(none)]> source db_agenda.sql
 ````
