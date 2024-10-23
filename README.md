@@ -128,15 +128,16 @@ Una vez creado  el ambiente virtual se debe inicializar con el siguiente comando
 $ source venv/bin/activate
 ````
 Para saber si ya se activo el ambiente virtual debe aparacer (venv) en el shell, como se muestra en el siguiente ejemplo.
+
 ````shell
-(venv) user$
+(venv)$
 ````
 3.3 Actualizar PIP
 
 Antes de instalar liberias es recomendable actualizar pip, esto permite que se descarguen las últimas versiones de las librerías.
 
 ````shell
-$ pip install --upgrade pip
+(venv)$ pip install --upgrade pip
 ````
 
 3.4 Instalar las librerias
@@ -144,7 +145,7 @@ $ pip install --upgrade pip
 Para este proyecto se utilizará [FastAPI](https://fastapi.tiangolo.com/#requirements)
 
 ````shell
-pip install fastapi[standard]
+(venv)$ pip install fastapi[standard]
 ````
 
 3.5 Generar el archivo requirements.txt
@@ -152,10 +153,10 @@ pip install fastapi[standard]
 Una vez que se instalaron las librerias se puede generar el archivo requirements.txt, este archivo permite llevar un control de las librerias instaladas y las versiones uitlizadas.
 
 ````shell
-pip freeze > requirements.txt
+(venv)$ pip freeze > requirements.txt
 ````
 
-En este caso estás son las librerias que se instalaron con la version fastapi==0.115.3
+En este caso estás son las librerias que se instalaron con la version **fastapi==0.115.3**
 
 ````shell
 annotated-types==0.7.0
