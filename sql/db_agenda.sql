@@ -1,3 +1,5 @@
+DROP DATABASE db_agenda;
+
 CREATE DATABASE db_agenda;
 
 USE  db_agenda;
@@ -17,3 +19,9 @@ VALUES
 ("John", "Carter", "Earth", "john@email.ea","2345678901");
 
 SELECT * FROM personas;
+
+CREATE USER 'user'@'localhost' IDENTIFIED BY '1234';
+GRANT ALL PRIVILEGES ON db_agenda.* TO 'user'@'localhost';
+FLUSH PRIVILEGES;
+
+SELECT "Usuario creado";

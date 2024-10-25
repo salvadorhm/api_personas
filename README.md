@@ -42,7 +42,23 @@ Iniciar una sesión dentro de mysql
 $ mysql -u root
 ````
 
-1.6 Ejecutar un script en MariaDB
+1.5 Configuración segura del servidor de base de datos
+
+El servidor de base de datos en este momento no tiene contraseña para el usuario root, por lo que desde el shell se ejecuta el siguiente comando.
+
+````shell
+$ mysql_secure_installation
+````
+
+1.7 Conecarse al servidor después de configurarlo
+
+Iniciar una sesión dentro de mysql utilizando la nueva contraseña que se establecio.
+
+````shell
+$ sudo mysql -u root -p
+````
+
+1.8 Ejecutar un script en MariaDB
 
 El script contendrá la creación de la base de datos, creación de las tablas entre otros pasos, revisar el **punto 2**
 
@@ -50,8 +66,15 @@ El script contendrá la creación de la base de datos, creación de las tablas e
 MariaDB [(none)]> source sql/db_agenda.sql;
 ````
 
+NOTA: el script crea un nuevo usuario de nombre **user** con el passoword **1234**, y le asigna todos los privilegios sobre la base de datos **db_agenda**, este será el usuario que estar utilizado para trabajar con la base de datos.
 
-1.7 Salir de la MariaDB
++ **host**: localhost
++ **user**: user
++ **password**: 1234
++ **port**: 3306
++ **dbname**: db_agenda
+
+1.9 Salir de la MariaDB
 
 Para salir del shell de MariaDB se utiliza exit
 
