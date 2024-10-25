@@ -125,6 +125,12 @@ VALUES
 ("John", "Carter", "Earth", "john@email.com","2345678901");
 
 SELECT * FROM personas;
+
+CREATE USER 'user'@'localhost' IDENTIFIED BY '1234';
+GRANT ALL PRIVILEGES ON db_agenda.* TO 'user'@'localhost';
+FLUSH PRIVILEGES;
+
+SELECT "Usuario creado";
 ````
 
 2.3 Crear la base de datos desde MariaDB shell
